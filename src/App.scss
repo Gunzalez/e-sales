@@ -1,0 +1,125 @@
+@import "assets/fonts";
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+
+$brand-red:         #ea3012;
+$brand-grey:        #e5e5e5;
+
+.App {
+
+  font-size: 13px;
+  color: #000000;
+  font-family: 'OSR';
+
+  @media (max-width: 1024px){
+    .container {
+      width: 100%;
+    }
+  }
+
+  a {
+    color: #000000;
+  }
+
+  .navbar {
+    border-radius: 0;
+    margin: 0;
+  }
+
+  .bordered {
+    border-bottom: 1px solid $brand-grey;
+  }
+
+  .navbar-header {
+    img {
+      height: 62px;
+      padding:10px 45px 10px 25px;
+    }
+
+    span {
+      font-size: 16px;
+    }
+  }
+
+  .language-links {
+    li {
+      border-left: 1px solid $brand-grey;
+
+      &:nth-child(1){
+        border-left: none;
+      }
+    }
+  }
+
+  .Steps {
+    button {
+      border: none;
+      background: none;
+      padding: 18px 25px;
+      margin: 0 1px 0 0;
+      font-size: 13px;
+      font-family: 'OSR';
+      &:hover{
+        border-bottom: 2px solid $brand-grey;
+      }
+
+      &.button-arrow {
+        display: none;
+      }
+
+      &.active {
+        border-bottom: 2px solid $brand-red;
+      }
+
+      &[disabled]{
+        border-bottom: 2px solid #ffffff;
+      }
+    }
+
+    .button-arrow {
+      float: left;
+      position: absolute;
+      top: 0;
+      border: 1px solid green;
+      margin: 0;
+
+      &.left{
+        left: 0
+      }
+      &.right {
+        right: 0
+      }
+    }
+
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+      text-align: center;
+      button {
+        &.button-arrow {
+          display: inline-block;
+        }
+        &.active {
+          border-color: #ffffff;
+          margin: 0 60px;
+        }
+      };
+      button {
+        white-space: nowrap;
+        &:not(.button-arrow){
+          &:not(.active){
+            display: none;
+          }
+        }
+      }
+    }
+
+    .language-links {
+      margin: 0;
+    }
+
+
+  }
+
+}
+
+
+
