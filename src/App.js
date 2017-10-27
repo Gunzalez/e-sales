@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import  Header from './components/Header/Header';
-import  Steps from './components/Steps/Steps';
-
+import Header from './components/Header/Header';
+import Steps from './components/Steps/Steps';
 
 
 
@@ -12,7 +11,7 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            carName: 'Prius'
+            carName: 'Toyota Camry Hybrid'
         };
     }
 

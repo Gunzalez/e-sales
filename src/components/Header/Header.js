@@ -18,7 +18,7 @@ class Header extends Component {
                             <img src={Logo} alt={this.props.carName} />
                             <span>{this.props.carName}</span>
                         </div>
-                        <div className="navbar-right language-controls">
+                        <div className="language-controls">
                             <button onClick={()=> {this.changeLanguage('en')}}>EN</button>
                             <button onClick={()=> {this.changeLanguage('no')}}>NO</button>
                         </div>

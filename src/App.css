@@ -20,25 +20,32 @@
   font-size: 13px;
   color: #000000;
   font-family: "OSR"; }
-  @media (max-width: 1024px) {
+  @media (max-width: 1201px) {
     .App .container {
       width: 100%; } }
   .App a {
     color: #000000; }
   .App .navbar {
     border-radius: 0;
-    margin: 0; }
+    margin: 0;
+    border: none; }
   .App .bordered {
     border-bottom: 1px solid #e5e5e5; }
   .App .navbar-header img {
     height: 62px;
-    padding: 10px 45px 10px 25px; }
+    padding: 10px 25px; }
+    @media screen and (max-width: 768px) {
+      .App .navbar-header img {
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important; } }
   .App .navbar-header span {
-    font-size: 16px; }
-  .App .language-links li {
-    border-left: 1px solid #e5e5e5; }
-    .App .language-links li:nth-child(1) {
-      border-left: none; }
+    font-size: 16px;
+    line-height: 120%;
+    padding-right: 90px;
+    padding-top: 15px;
+    padding-left: 10px;
+    display: inline-block; }
   .App .Steps .navbar {
     min-height: 40px; }
   @media screen and (max-width: 1024px) {
@@ -48,10 +55,10 @@
     border: none;
     background: none;
     padding: 18px 25px;
-    margin: 0 1px 0 0;
     font-size: 13px;
     font-family: "OSR";
-    border-bottom: 2px solid #ffffff; }
+    border-bottom: 2px solid #ffffff;
+    outline: none; }
     .App .Steps button.active {
       border-color: #ea3012; }
     .App .Steps button[disabled] {
@@ -93,5 +100,20 @@
       .App .Steps .button-arrow.right span::before {
         content: "\f054";
         right: 0; }
-  .App .Steps .language-links {
-    margin: 0; }
+  .App .Header .language-controls {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -18px; }
+  .App .Header button {
+    border: none;
+    background: none;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-family: "OSR";
+    outline: none;
+    border-left: 1px solid #e5e5e5; }
+    .App .Header button:nth-child(1) {
+      border-left: none; }
+    .App .Header button:hover {
+      text-decoration: underline; }

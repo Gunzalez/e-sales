@@ -16,7 +16,7 @@ $fontToyota:        'OSR';
   color: #000000;
   font-family: $fontToyota;
 
-  @media (max-width: $breakpoint){
+  @media (max-width: 1201px){
     .container {
       width: 100%;
     }
@@ -29,6 +29,7 @@ $fontToyota:        'OSR';
   .navbar {
     border-radius: 0;
     margin: 0;
+    border: none;
   }
 
   .bordered {
@@ -38,21 +39,22 @@ $fontToyota:        'OSR';
   .navbar-header {
     img {
       height: 62px;
-      padding:10px 45px 10px 25px;
+      padding:10px 25px;
+
+      @media screen and (max-width: 768px) {
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+      }
     }
 
     span {
       font-size: 16px;
-    }
-  }
-
-  .language-links {
-    li {
-      border-left: 1px solid $brand-grey;
-
-      &:nth-child(1){
-        border-left: none;
-      }
+      line-height: 120%;
+      padding-right: 90px;
+      padding-top: 15px;
+      padding-left: 10px;
+      display: inline-block;
     }
   }
 
@@ -71,10 +73,10 @@ $fontToyota:        'OSR';
       border: none;
       background: none;
       padding: 18px 25px;
-      margin: 0 1px 0 0;
       font-size: 13px;
       font-family: $fontToyota;
       border-bottom: 2px solid #ffffff;
+      outline: none;
 
       &.active {
         border-color: $brand-red;
@@ -152,12 +154,34 @@ $fontToyota:        'OSR';
         }
       }
     }
+  }
 
-    .language-links {
-      margin: 0;
+  .Header {
+
+    .language-controls {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -18px;
     }
 
+    button {
+      border: none;
+      background: none;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-family: $fontToyota;
+      outline: none;
+      border-left: 1px solid $brand-grey;
 
+      &:nth-child(1){
+        border-left: none;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
 }
