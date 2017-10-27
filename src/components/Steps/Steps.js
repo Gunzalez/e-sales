@@ -8,8 +8,8 @@ class Steps extends Component {
 
                     <nav className="navbar">
                         <button className="button-arrow left"><span></span></button>
-                        <button>1. Verify identity</button>
-                        <button className="active">2. Credit check</button>
+                        <button className="active">1. Verify identity</button>
+                        <button disabled>2. Credit check</button>
                         <button disabled>3. Check details</button>
                         <button disabled>4. Select dealer</button>
                         <button disabled>5. Sign contract</button>

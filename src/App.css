@@ -18,17 +18,19 @@
 
 .App {
   font-size: 13px;
-  color: #000000;
+  color: #333333;
   font-family: "OSR"; }
   @media (max-width: 1201px) {
     .App .container {
       width: 100%; } }
-  .App a {
-    color: #000000; }
+  .App h1 {
+    font-family: "TYB"; }
   .App .navbar {
     border-radius: 0;
     margin: 0;
     border: none; }
+  .App .content {
+    padding: 30px; }
   .App .bordered {
     border-bottom: 1px solid #e5e5e5; }
   .App .navbar-header img {
@@ -46,6 +48,23 @@
     padding-top: 15px;
     padding-left: 10px;
     display: inline-block; }
+  .App .Header .language-controls {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -18px; }
+  .App .Header button {
+    border: none;
+    background: none;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-family: "OSR";
+    outline: none;
+    border-left: 1px solid #e5e5e5; }
+    .App .Header button:nth-child(1) {
+      border-left: none; }
+    .App .Header button:hover {
+      text-decoration: underline; }
   .App .Steps .navbar {
     min-height: 40px; }
   @media screen and (max-width: 1024px) {
@@ -100,20 +119,3 @@
       .App .Steps .button-arrow.right span::before {
         content: "\f054";
         right: 0; }
-  .App .Header .language-controls {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    margin-top: -18px; }
-  .App .Header button {
-    border: none;
-    background: none;
-    padding: 8px 12px;
-    font-size: 12px;
-    font-family: "OSR";
-    outline: none;
-    border-left: 1px solid #e5e5e5; }
-    .App .Header button:nth-child(1) {
-      border-left: none; }
-    .App .Header button:hover {
-      text-decoration: underline; }

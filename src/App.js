@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header/Header';
 import Steps from './components/Steps/Steps';
+import VerifyUser from './components/VerifyUser/VerifyUser';
 
 
 
@@ -24,6 +25,7 @@ class App extends Component {
             <div className="App">
                 <Header carName={this.state.carName} changeLanguage={this.changeLanguage} />
                 <Steps />
+                <VerifyUser />
 
 
 
