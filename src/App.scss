@@ -1,5 +1,7 @@
-@import "assets/fonts";
+
 @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
+@import "assets/fonts";
 
 $brand-red:         #ea3012;
 $brand-grey:        #e5e5e5;
@@ -63,7 +65,6 @@ $brand-grey:        #e5e5e5;
       }
 
       &.button-arrow {
-        display: none;
       }
 
       &.active {
@@ -76,10 +77,26 @@ $brand-grey:        #e5e5e5;
     }
 
     .button-arrow {
+      display: none;
+
+      span {
+        position: relative;
+        width: 10px;
+        height: 20px;
+        display: block;
+        &::before {
+          font-family: FontAwesome;
+          content: "\f053";
+          color: $brand-red;
+          display: inline-block;
+          position: absolute;
+          left: 0;
+        }
+      }
+
       float: left;
       position: absolute;
       top: 0;
-      border: 1px solid green;
       margin: 0;
 
       &.left{

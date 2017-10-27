@@ -1,4 +1,5 @@
 @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
 @font-face {
   src: url(/fonts/toyota_bd.ttf);
   font-family: 'TYB'; }
@@ -47,18 +48,28 @@
     font-family: 'OSR'; }
     .App .Steps button:hover {
       border-bottom: 2px solid #e5e5e5; }
-    .App .Steps button.button-arrow {
-      display: none; }
     .App .Steps button.active {
       border-bottom: 2px solid #ea3012; }
     .App .Steps button[disabled] {
       border-bottom: 2px solid #ffffff; }
   .App .Steps .button-arrow {
+    display: none;
     float: left;
     position: absolute;
     top: 0;
-    border: 1px solid green;
     margin: 0; }
+    .App .Steps .button-arrow span {
+      position: relative;
+      width: 10px;
+      height: 20px;
+      display: block; }
+      .App .Steps .button-arrow span::before {
+        font-family: FontAwesome;
+        content: "\f053";
+        color: #ea3012;
+        display: inline-block;
+        position: absolute;
+        left: 0; }
     .App .Steps .button-arrow.left {
       left: 0; }
     .App .Steps .button-arrow.right {
