@@ -15,6 +15,7 @@ $brand-grey:        #e5e5e5;
   @media (max-width: 1024px){
     .container {
       width: 100%;
+      padding: 0;
     }
   }
 
@@ -80,30 +81,40 @@ $brand-grey:        #e5e5e5;
       display: none;
 
       span {
+        font-family: FontAwesome;
         position: relative;
         width: 10px;
         height: 20px;
-        display: block;
-        &::before {
-          font-family: FontAwesome;
-          content: "\f053";
-          color: $brand-red;
-          display: inline-block;
-          position: absolute;
-          left: 0;
-        }
+        color: #d8d8d8;
+        display: inline-block;
       }
 
-      float: left;
       position: absolute;
       top: 0;
       margin: 0;
 
       &.left{
-        left: 0
+        left: 0;
+        //padding-left: 0;
+
+        span {
+          &::before {
+            content: "\f053";
+            left: 0;
+          }
+        }
       }
+
       &.right {
-        right: 0
+        right: 0;
+        //padding-right: 0;
+
+        span {
+          &::before{
+            content: "\f054";
+            right: 0;
+          }
+        }
       }
     }
 
@@ -111,6 +122,7 @@ $brand-grey:        #e5e5e5;
       width: 100%;
       text-align: center;
       button {
+        padding: 18px;
         &.button-arrow {
           display: inline-block;
         }

@@ -22,7 +22,8 @@
   font-family: 'OSR'; }
   @media (max-width: 1024px) {
     .App .container {
-      width: 100%; } }
+      width: 100%;
+      padding: 0; } }
   .App a {
     color: #000000; }
   .App .navbar {
@@ -54,35 +55,37 @@
       border-bottom: 2px solid #ffffff; }
   .App .Steps .button-arrow {
     display: none;
-    float: left;
     position: absolute;
     top: 0;
     margin: 0; }
     .App .Steps .button-arrow span {
+      font-family: FontAwesome;
       position: relative;
       width: 10px;
       height: 20px;
-      display: block; }
-      .App .Steps .button-arrow span::before {
-        font-family: FontAwesome;
-        content: "\f053";
-        color: #ea3012;
-        display: inline-block;
-        position: absolute;
-        left: 0; }
+      color: #d8d8d8;
+      display: inline-block; }
     .App .Steps .button-arrow.left {
       left: 0; }
+      .App .Steps .button-arrow.left span::before {
+        content: "\f053";
+        left: 0; }
     .App .Steps .button-arrow.right {
       right: 0; }
+      .App .Steps .button-arrow.right span::before {
+        content: "\f054";
+        right: 0; }
   @media screen and (max-width: 1024px) {
     .App .Steps {
       width: 100%;
       text-align: center; }
-      .App .Steps button.button-arrow {
-        display: inline-block; }
-      .App .Steps button.active {
-        border-color: #ffffff;
-        margin: 0 60px; }
+      .App .Steps button {
+        padding: 18px; }
+        .App .Steps button.button-arrow {
+          display: inline-block; }
+        .App .Steps button.active {
+          border-color: #ffffff;
+          margin: 0 60px; }
       .App .Steps button {
         white-space: nowrap; }
         .App .Steps button:not(.button-arrow):not(.active) {
