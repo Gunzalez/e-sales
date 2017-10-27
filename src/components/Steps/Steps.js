@@ -13,7 +13,7 @@ class Steps extends Component {
                         <button disabled>3. Check details</button>
                         <button disabled>4. Select dealer</button>
                         <button disabled>5. Sign contract</button>
-                        <button className="button-arrow right"><span></span></button>
+                        <button disabled className="button-arrow right"><span></span></button>
                     </nav>
 
                 </div>

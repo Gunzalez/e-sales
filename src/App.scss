@@ -6,16 +6,19 @@
 $brand-red:         #ea3012;
 $brand-grey:        #e5e5e5;
 
+$breakpoint:        1024px;
+
+$fontToyota:        'OSR';
+
 .App {
 
   font-size: 13px;
   color: #000000;
-  font-family: 'OSR';
+  font-family: $fontToyota;
 
-  @media (max-width: 1024px){
+  @media (max-width: $breakpoint){
     .container {
       width: 100%;
-      padding: 0;
     }
   }
 
@@ -54,48 +57,81 @@ $brand-grey:        #e5e5e5;
   }
 
   .Steps {
+
+    .navbar {
+      min-height: 40px;
+    }
+
+    @media screen and (max-width: $breakpoint) {
+      text-align: center;
+    }
+
     button {
+
       border: none;
       background: none;
       padding: 18px 25px;
       margin: 0 1px 0 0;
       font-size: 13px;
-      font-family: 'OSR';
-      &:hover{
-        border-bottom: 2px solid $brand-grey;
-      }
-
-      &.button-arrow {
-      }
+      font-family: $fontToyota;
+      border-bottom: 2px solid #ffffff;
 
       &.active {
-        border-bottom: 2px solid $brand-red;
+        border-color: $brand-red;
       }
 
       &[disabled]{
-        border-bottom: 2px solid #ffffff;
+        color: $brand-grey;
+      }
+
+      @media screen and (max-width: $breakpoint) {
+
+        font-size: 12px;
+        padding: 12px;
+        border-bottom: none;
+        white-space: nowrap;
+
+        &.button-arrow {
+          display: inline-block;
+        }
+
+        &.active {
+          border-color: #ffffff;
+          margin: 0 60px;
+        }
+
+        &:not(.button-arrow){
+          &:not(.active){
+            display: none;
+          }
+        }
+
       }
     }
 
     .button-arrow {
       display: none;
+      position: absolute;
+      top: 0;
+      margin: 0;
 
       span {
         font-family: FontAwesome;
         position: relative;
         width: 10px;
         height: 20px;
-        color: #d8d8d8;
+        color: $brand-red;
         display: inline-block;
       }
 
-      position: absolute;
-      top: 0;
-      margin: 0;
+      &[disabled]{
+        span {
+          color: $brand-grey
+        }
+      }
 
       &.left{
         left: 0;
-        //padding-left: 0;
 
         span {
           &::before {
@@ -107,35 +143,11 @@ $brand-grey:        #e5e5e5;
 
       &.right {
         right: 0;
-        //padding-right: 0;
 
         span {
           &::before{
             content: "\f054";
             right: 0;
-          }
-        }
-      }
-    }
-
-    @media screen and (max-width: 1024px) {
-      width: 100%;
-      text-align: center;
-      button {
-        padding: 18px;
-        &.button-arrow {
-          display: inline-block;
-        }
-        &.active {
-          border-color: #ffffff;
-          margin: 0 60px;
-        }
-      };
-      button {
-        white-space: nowrap;
-        &:not(.button-arrow){
-          &:not(.active){
-            display: none;
           }
         }
       }
