@@ -16,16 +16,51 @@ class App extends Component {
         this.state = {
             carName: 'Toyota Camry Hybrid',
             step: 1,
-            carDetails: {
+            details: {
                 id: 'xAD-01',
                 name: 'Toyota Camry Hybrid',
                 imageUrl: '/data/item.jpg'
+            },
+            dictionary: {
+                "stepOne":{},
+                "stepTwo":{},
+                "summary":{}
             }
         };
     }
 
+    componentDidMount(){
+
+        let that = this;
+        let url = 'http://localhost:3000/dictionary/en.json';
+
+        fetch(url)
+            .then(function(response) {
+                if (response.status >= 400) {
+                    throw new Error("Bad response from server");
+                }
+                return response.json();
+            })
+            .then(function(data) {
+                that.setState({ dictionary: data });
+            });
+    }
+
     changeLanguage(lang){
-        console.log('changes language to ' + lang)
+
+        let that = this;
+        let url = 'http://localhost:3000/dictionary/'+lang+'.json';
+
+        fetch(url)
+            .then(function(response) {
+                if (response.status >= 400) {
+                    throw new Error("Bad response from server");
+                }
+                return response.json();
+            })
+            .then(function(data) {
+                that.setState({ dictionary: data });
+            });
     }
 
     moveToNextStep(){
@@ -34,23 +69,26 @@ class App extends Component {
         })
     }
 
-    // Verify User actions
-
 
 
     render() {
         return (
             <div className="App">
-                <Header carName={this.state.carName} changeLanguage={this.changeLanguage} />
-                <Steps step={this.state.step} />
+
+                <Header carName={this.state.carName} changeLanguage={this.changeLanguage.bind(this)} dictionary={this.state.dictionary} />
+                <Steps step={this.state.step} dictionary={this.state.dictionary} />
 
                 <div className="container">
                     <main>
-                        <StepOne step={this.state.step} moveToNextStep={this.moveToNextStep.bind(this)} />
-                        <StepTwo step={this.state.step} moveToNextStep={this.moveToNextStep.bind(this)} />
+
+                        <StepOne step={this.state.step} moveToNextStep={this.moveToNextStep.bind(this)} dictionary={this.state.dictionary["stepOne"]} />
+                        <StepTwo step={this.state.step} moveToNextStep={this.moveToNextStep.bind(this)} dictionary={this.state.dictionary["stepTwo"]} />
+
                     </main>
                     <aside>
-                        <Summary itemDetails={this.state.carDetails} />
+
+                        <Summary details={this.state.details} dictionary={this.state.dictionary['summary']} />
+
                     </aside>
                 </div>
 

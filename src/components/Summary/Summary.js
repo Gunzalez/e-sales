@@ -7,8 +7,8 @@ class Summary extends Component {
             <section className="Summary">
                 <div className="content">
 
-                    <h2>Your quote</h2>
-                    <img src={this.props['itemDetails'].imageUrl} alt={this.props['itemDetails'].name} />
+                    <h2>{this.props.dictionary['header']}</h2>
+                    <img src={this.props['details'].imageUrl} alt={this.props['details'].name} />
 
                     <table width="100%" border="0">
                         <tbody>

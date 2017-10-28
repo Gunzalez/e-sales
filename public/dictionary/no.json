@@ -1,0 +1,16 @@
+{
+  "stepOne": {
+    "label":"1. Legitimasjon",
+    "header":"Bekreft din identitet",
+    "intro":"Hvordan ønsker du å legitimere deg?",
+    "button1Label":"BankID",
+    "button2Label":"BankID på mobi"
+  },
+  "stepTwo": {
+    "label":"2. Kredittvurdering",
+    "header":"Kredittvurdering"
+  },
+  "summary": {
+    "header":"Din beregning"
+  }
+}

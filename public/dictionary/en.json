@@ -1,0 +1,16 @@
+{
+  "stepOne": {
+    "label":"1. Verify user",
+    "header":"Verify your identity",
+    "intro":"How would you like to verify your identity?",
+    "button1Label":"BankID on this device",
+    "button2Label":"BankID on a different device"
+  },
+  "stepTwo": {
+    "label":"2. Credit check",
+    "header":"Verify your identity"
+  },
+  "summary": {
+    "header":"Your quote"
+  }
+}

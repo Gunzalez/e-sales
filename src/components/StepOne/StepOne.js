@@ -39,11 +39,11 @@ class StepOne extends Component {
 
 
                 { !this.state.busy ? <div className="content">
-                    <h1>Verify your identity</h1>
-                    <p>How would you like to verify your identity?</p>
+                    <h1>{this.props.dictionary['header']}</h1>
+                    <p>{this.props.dictionary['intro']}</p>
 
-                    <button className="btn" onClick={()=>{this.doBankID()}}>BankID on this device</button>
-                    <button className="btn">BankID on a different device</button>
+                    <button className="btn" onClick={()=>{this.doBankID()}}>{this.props.dictionary['button1Label']}</button>
+                    <button className="btn">{this.props.dictionary['button2Label']}</button>
                 </div> : ''}
 
             </section>

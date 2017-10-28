@@ -17,7 +17,7 @@ class StepTwo extends Component {
             <section className="StepTwo">
 
                 <div className="content">
-                    <h1>Credit Check</h1>
+                    <h1>{this.props.dictionary['header']}</h1>
                     <p>Lots of form fields here</p>
 
                     <button>Submit</button>
