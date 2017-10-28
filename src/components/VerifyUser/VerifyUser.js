@@ -27,30 +27,25 @@ class VerifyUser extends Component {
 
     renderFalse(){
         return (
-            <section></section>
+            ''
         )
     }
 
     renderTrue(){
         return (
             <section className="VerifyUser">
-                <div className="container">
 
-                    { this.state.busy ? <div className="spinner"></div> : ''}
-
-
-                    { !this.state.busy ? <div className="content">
-                        <h1>Verify your identity</h1>
-                        <p>How would you like to verify your identity?</p>
-
-                        <button className="btn" onClick={()=>{this.doBankID()}}>BankID on this device</button>
-                        <button className="btn">BankID on a different device</button>
-                    </div> : ''}
+                { this.state.busy ? <div className="spinner"></div> : ''}
 
 
+                { !this.state.busy ? <div className="content">
+                    <h1>Verify your identity</h1>
+                    <p>How would you like to verify your identity?</p>
 
+                    <button className="btn" onClick={()=>{this.doBankID()}}>BankID on this device</button>
+                    <button className="btn">BankID on a different device</button>
+                </div> : ''}
 
-                </div>
             </section>
         )
     }

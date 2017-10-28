@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import Steps from './components/Steps/Steps';
 import VerifyUser from './components/VerifyUser/VerifyUser';
 import CreditCheck from './components/CreditCheck/CreditCheck';
+import Summary from './components/Summary/Summary';
 
 
 
@@ -14,7 +15,12 @@ class App extends Component {
         super(props);
         this.state = {
             carName: 'Toyota Camry Hybrid',
-            step: 1
+            step: 1,
+            carDetails: {
+                id: 'xAD-01',
+                name: 'Toyota Camry Hybrid',
+                imageUrl: '/data/item.jpg'
+            }
         };
     }
 
@@ -38,12 +44,15 @@ class App extends Component {
                 <Header carName={this.state.carName} changeLanguage={this.changeLanguage} />
                 <Steps step={this.state.step} />
 
-                <VerifyUser step={this.state.step} moveToNextStep={this.moveToNextStep.bind(this)} />
-                <CreditCheck step={this.state.step} moveToNextStep={this.moveToNextStep.bind(this)} />
-
-
-
-
+                <div className="container">
+                    <main>
+                        <VerifyUser step={this.state.step} moveToNextStep={this.moveToNextStep.bind(this)} />
+                        <CreditCheck step={this.state.step} moveToNextStep={this.moveToNextStep.bind(this)} />
+                    </main>
+                    <aside>
+                        <Summary itemDetails={this.state.carDetails} />
+                    </aside>
+                </div>
 
 
             </div>

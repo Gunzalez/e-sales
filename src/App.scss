@@ -25,7 +25,7 @@ $fontToyota2:       'TYB';
     }
   }
 
-  h1 {
+  h1, h2 {
     font-family: $fontToyota2;
   }
 
@@ -36,7 +36,7 @@ $fontToyota2:       'TYB';
   }
 
   .content {
-    padding: 30px;
+    padding: 10px 20px;
   }
 
   .bordered {
@@ -196,6 +196,24 @@ $fontToyota2:       'TYB';
 
   }
 
+  main {
+    float: left;
+    width: 60%;
+    @media screen and (max-width: $breakpoint) {
+      float: none;
+      width: 100%;
+    }
+  }
+
+  aside {
+    float: right;
+    width: 40%;
+    @media screen and (max-width: $breakpoint) {
+      float: none;
+      width: 100%;
+    }
+  }
+
   .spinner {
     height: 200px;
     background: darkred;
@@ -210,6 +228,15 @@ $fontToyota2:       'TYB';
     width: 75%;
     display: block;
     margin: 20px 0;
+  }
+
+  .Summary {
+    text-align: center;
+
+    table {
+      margin-top: 20px;
+      border: 1px solid red;
+    }
   }
 
 }
