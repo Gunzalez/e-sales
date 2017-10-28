@@ -78,10 +78,11 @@
     font-family: "OSR";
     border-bottom: 2px solid #ffffff;
     outline: none; }
-    .App .Steps button.active {
-      border-color: #ea3012; }
     .App .Steps button[disabled] {
       color: #e5e5e5; }
+    .App .Steps button.active {
+      border-color: #ea3012;
+      color: #333333; }
     @media screen and (max-width: 1024px) {
       .App .Steps button {
         font-size: 12px;
@@ -119,3 +120,6 @@
       .App .Steps .button-arrow.right span::before {
         content: "\f054";
         right: 0; }
+  .App .spinner {
+    height: 200px;
+    background: darkred; }

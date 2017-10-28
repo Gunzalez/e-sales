@@ -5,6 +5,8 @@
 
 $brand-red:         #ea3012;
 $brand-grey:        #e5e5e5;
+$brand-grey2:       #595d60;
+$brand-grey3:       #333333;
 
 $breakpoint:        1024px;
 
@@ -14,7 +16,7 @@ $fontToyota2:       'TYB';
 .App {
 
   font-size: 13px;
-  color: #333333;
+  color: $brand-grey3;
   font-family: $fontToyota;
 
   @media (max-width: 1201px){
@@ -32,7 +34,6 @@ $fontToyota2:       'TYB';
     margin: 0;
     border: none;
   }
-
 
   .content {
     padding: 30px;
@@ -112,12 +113,13 @@ $fontToyota2:       'TYB';
       border-bottom: 2px solid #ffffff;
       outline: none;
 
-      &.active {
-        border-color: $brand-red;
-      }
-
       &[disabled]{
         color: $brand-grey;
+      }
+
+      &.active {
+        border-color: $brand-red;
+        color: $brand-grey3;
       }
 
       @media screen and (max-width: $breakpoint) {
@@ -190,7 +192,13 @@ $fontToyota2:       'TYB';
     }
   }
 
-  .Verify {
+  .VerifyUser {
+
+  }
+
+  .spinner {
+    height: 200px;
+    background: darkred;
   }
 
 }

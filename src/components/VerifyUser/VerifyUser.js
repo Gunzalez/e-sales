@@ -1,23 +1,62 @@
 import React, { Component } from 'react';
 
 class VerifyUser extends Component {
-    render() {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            busy: false
+        };
+    }
+
+    doBankID(){
+        this.setState({
+            busy: true
+        });
+        // does lots of ajax stuff
+        //
+        //
+        //
+
+        this.moveToNextStep();
+    }
+
+    moveToNextStep(){
+        this.props.moveToNextStep()
+    }
+
+    renderFalse(){
         return (
-            <section className="Verify">
+            <section></section>
+        )
+    }
+
+    renderTrue(){
+        return (
+            <section className="VerifyUser">
                 <div className="container">
 
-                    <div className="content">
+                    { this.state.busy ? <div className="spinner"></div> : ''}
+
+
+                    { !this.state.busy ? <div className="content">
                         <h1>Verify your identity</h1>
                         <p>How would you like to verify your identity?</p>
-                    </div>
 
+                        <button onClick={()=>{this.doBankID()}}>BankID on this device</button>
+                        <button>BankID on a different device</button>
+                    </div> : ''}
 
 
 
 
                 </div>
             </section>
-        );
+        )
+    }
+
+    render() {
+       return (this.props.step === 1 ? this.renderTrue() : this.renderFalse())
     }
 }
 
