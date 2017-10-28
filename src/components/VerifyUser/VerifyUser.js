@@ -43,8 +43,8 @@ class VerifyUser extends Component {
                         <h1>Verify your identity</h1>
                         <p>How would you like to verify your identity?</p>
 
-                        <button onClick={()=>{this.doBankID()}}>BankID on this device</button>
-                        <button>BankID on a different device</button>
+                        <button className="btn" onClick={()=>{this.doBankID()}}>BankID on this device</button>
+                        <button className="btn">BankID on a different device</button>
                     </div> : ''}
 
 
