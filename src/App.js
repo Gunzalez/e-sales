@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Header from './components/Header/Header';
 import Steps from './components/Steps/Steps';
-import VerifyUser from './components/VerifyUser/VerifyUser';
-import CreditCheck from './components/CreditCheck/CreditCheck';
+import StepOne from './components/StepOne/StepOne';
+import StepTwo from './components/StepTwo/StepTwo';
 import Summary from './components/Summary/Summary';
 
 
@@ -46,8 +46,8 @@ class App extends Component {
 
                 <div className="container">
                     <main>
-                        <VerifyUser step={this.state.step} moveToNextStep={this.moveToNextStep.bind(this)} />
-                        <CreditCheck step={this.state.step} moveToNextStep={this.moveToNextStep.bind(this)} />
+                        <StepOne step={this.state.step} moveToNextStep={this.moveToNextStep.bind(this)} />
+                        <StepTwo step={this.state.step} moveToNextStep={this.moveToNextStep.bind(this)} />
                     </main>
                     <aside>
                         <Summary itemDetails={this.state.carDetails} />

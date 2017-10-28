@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class CreditCheck extends Component {
+class StepTwo extends Component {
 
     moveToNextStep(){
         this.props.moveToNextStep()
@@ -14,7 +14,7 @@ class CreditCheck extends Component {
 
     renderTrue(){
         return (
-            <section className="CreditCheck">
+            <section className="StepTwo">
 
                 <div className="content">
                     <h1>Credit Check</h1>
@@ -32,4 +32,4 @@ class CreditCheck extends Component {
     }
 }
 
-export default CreditCheck;
+export default StepTwo;

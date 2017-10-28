@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class VerifyUser extends Component {
+class StepOne extends Component {
 
     constructor(props){
         super(props);
@@ -33,7 +33,7 @@ class VerifyUser extends Component {
 
     renderTrue(){
         return (
-            <section className="VerifyUser">
+            <section className="StepOne">
 
                 { this.state.busy ? <div className="spinner"></div> : ''}
 
@@ -55,4 +55,4 @@ class VerifyUser extends Component {
     }
 }
 
-export default VerifyUser;
+export default StepOne;
