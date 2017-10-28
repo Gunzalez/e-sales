@@ -145,7 +145,11 @@
     color: #555;
     width: 75%;
     display: block;
-    margin: 20px 0; }
+    margin: 20px 0;
+    outline: none; }
+    .App .btn:focus {
+      outline: none;
+      box-shadow: none; }
   .App .Summary {
     text-align: center; }
     .App .Summary table {

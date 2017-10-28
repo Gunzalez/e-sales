@@ -228,6 +228,11 @@ $fontToyota2:       'TYB';
     width: 75%;
     display: block;
     margin: 20px 0;
+    outline: none;
+    &:focus{
+      outline: none;
+      box-shadow: none;
+    }
   }
 
   .Summary {
