@@ -21,11 +21,7 @@ class App extends Component {
                 name: 'Toyota Camry Hybrid',
                 imageUrl: '/data/item.jpg'
             },
-            dictionary: {
-                "stepOne":{},
-                "stepTwo":{},
-                "summary":{}
-            }
+            dictionary: {}
         };
     }
 

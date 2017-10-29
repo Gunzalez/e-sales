@@ -5,7 +5,8 @@ class StepOne extends Component {
     constructor(props){
         super(props);
         this.state = {
-            busy: false
+            busy: false,
+            dictionary : {}
         };
     }
 
@@ -18,11 +19,15 @@ class StepOne extends Component {
         //
         //
 
-        this.moveToNextStep();
+        this.props.moveToNextStep()
     }
 
-    moveToNextStep(){
-        this.props.moveToNextStep()
+    getDictionaryValue(key){
+        let rtnVal = '';
+        if(this.props.dictionary && this.props.dictionary[key]){
+            rtnVal = this.props.dictionary[key];
+        }
+        return rtnVal;
     }
 
     renderFalse(){
@@ -39,11 +44,11 @@ class StepOne extends Component {
 
 
                 { !this.state.busy ? <div className="content">
-                    <h1>{this.props.dictionary['header']}</h1>
-                    <p>{this.props.dictionary['intro']}</p>
+                    <h1>{this.getDictionaryValue('header')}</h1>
+                    <p>{this.getDictionaryValue('intro')}</p>
 
-                    <button className="btn" onClick={()=>{this.doBankID()}}>{this.props.dictionary['button1Label']}</button>
-                    <button className="btn">{this.props.dictionary['button2Label']}</button>
+                    <button className="btn" onClick={()=>{this.doBankID()}}>{ this.getDictionaryValue('button1Label') }</button>
+                    <button className="btn">{ this.getDictionaryValue('button2Label') }</button>
                 </div> : ''}
 
             </section>

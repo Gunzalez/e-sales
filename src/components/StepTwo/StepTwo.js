@@ -6,6 +6,14 @@ class StepTwo extends Component {
         this.props.moveToNextStep()
     }
 
+    getDictionaryValue(key){
+        let rtnVal = '';
+        if(this.props.dictionary && this.props.dictionary[key]){
+            rtnVal = this.props.dictionary[key];
+        }
+        return rtnVal;
+    }
+
     renderFalse(){
         return (
             ''
@@ -17,7 +25,7 @@ class StepTwo extends Component {
             <section className="StepTwo">
 
                 <div className="content">
-                    <h1>{this.props.dictionary['header']}</h1>
+                    <h1>{this.getDictionaryValue('header')}</h1>
                     <p>Lots of form fields here</p>
 
                     <button>Submit</button>
