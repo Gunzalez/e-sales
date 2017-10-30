@@ -30,33 +30,23 @@ class StepOne extends Component {
         return rtnVal;
     }
 
-    renderFalse(){
-        return (
-            ''
-        )
-    }
-
-    renderTrue(){
-        return (
-            <section className="StepOne">
-
-                { this.state.busy ? <div className="spinner"></div> : ''}
-
-
-                { !this.state.busy ? <div className="content">
-                    <h1>{this.getDictionaryValue('header')}</h1>
-                    <p>{this.getDictionaryValue('intro')}</p>
-
-                    <button className="btn" onClick={()=>{this.doBankID()}}>{ this.getDictionaryValue('button1Label') }</button>
-                    <button className="btn">{ this.getDictionaryValue('button2Label') }</button>
-                </div> : ''}
-
-            </section>
-        )
-    }
-
     render() {
-       return (this.props.step === 1 ? this.renderTrue() : this.renderFalse())
+       return (
+           <section className="StepOne">
+
+               { this.state.busy ? <div className="spinner"></div> : ''}
+
+
+               { !this.state.busy ? <div className="content">
+                   <h1>{this.getDictionaryValue('header')}</h1>
+                   <p>{this.getDictionaryValue('intro')}</p>
+
+                   <button className="btn" onClick={()=>{this.doBankID()}}>{ this.getDictionaryValue('button1Label') }</button>
+                   <button className="btn">{ this.getDictionaryValue('button2Label') }</button>
+               </div> : ''}
+
+           </section>
+       )
     }
 }
 

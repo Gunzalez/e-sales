@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Logo from '../../assets/images/logo.svg';
 import './Header.scss';
-
 class Header extends Component {
 
     changeLanguage(lang){

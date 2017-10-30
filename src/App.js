@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import Header from './components/Header/Header';
 import Steps from './components/Steps/Steps';
+import Summary from './components/Summary/Summary';
+import { Route } from 'react-router-dom'
 import StepOne from './components/StepOne/StepOne';
 import StepTwo from './components/StepTwo/StepTwo';
-import Summary from './components/Summary/Summary';
-
-
 
 import './App.css';
 
@@ -77,8 +76,11 @@ class App extends Component {
                 <div className="container">
                     <main>
 
-                        <StepOne step={this.state.step} moveToNextStep={this.moveToNextStep.bind(this)} dictionary={this.state.dictionary["stepOne"]} />
-                        <StepTwo step={this.state.step} moveToNextStep={this.moveToNextStep.bind(this)} dictionary={this.state.dictionary["stepTwo"]} />
+                        <Route exact={true} path="/" component={StepOne} step={this.state.step}  />
+
+
+                        {/*<StepOne step={this.state.step} moveToNextStep={this.moveToNextStep.bind(this)} dictionary={this.state.dictionary["stepOne"]} />*/}
+                        {/*<StepTwo step={this.state.step} moveToNextStep={this.moveToNextStep.bind(this)} dictionary={this.state.dictionary["stepTwo"]} />*/}
 
                     </main>
                     <aside>
