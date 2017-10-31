@@ -14,13 +14,7 @@ class StepTwo extends Component {
         return rtnVal;
     }
 
-    renderFalse(){
-        return (
-            ''
-        )
-    }
-
-    renderTrue(){
+    render() {
         return (
             <section className="StepTwo">
 
@@ -33,10 +27,6 @@ class StepTwo extends Component {
 
             </section>
         )
-    }
-
-    render() {
-        return (this.props.step === 2 ? this.renderTrue() : this.renderFalse())
     }
 }
 

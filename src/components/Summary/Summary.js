@@ -11,12 +11,13 @@ class Summary extends Component {
     }
 
     render() {
+
         return (
             <section className="Summary">
                 <div className="content">
 
                     <h2>{this.getDictionaryValue('header')}</h2>
-                    <img src={this.props['details'].imageUrl} alt={this.props['details'].name} />
+
 
                     <table width="100%" border="0">
                         <tbody>
