@@ -4,7 +4,8 @@
     "header":"Bekreft din identitet",
     "intro":"Hvordan ønsker du å legitimere deg?",
     "button1Label":"BankID",
-    "button2Label":"BankID på mobi"
+    "button2Label":"BankID på mobi",
+    "button3Label":"I don't have BankID"
   },
   "stepZero": {
     "welcome":"Velkommen",
@@ -15,7 +16,8 @@
       "Ikke gjør dette",
       "Gjør aldri det"
     ],
-    "para1":"Klikk på knappen nedenfor for å fortsette"
+    "para1":"Klikk på knappen nedenfor for å fortsette",
+    "buttonLabel1":"Start prosessen"
   },
   "stepTwo": {
     "label":"2. Kredittvurdering",

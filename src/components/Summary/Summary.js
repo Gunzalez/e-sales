@@ -15,25 +15,21 @@ class Summary extends Component {
         }
     }
 
-    getCarDetail(key, key2){
-        let rtnVal = '',
-            car = this.state.car;
-
-        try {
-            rtnVal = car[key][key2];
-            return rtnVal
-        } catch (err){
-            return rtnVal;
-        }
-    }
-
     getValue(key){
         return this.props.getValue(this.props.dictionary, key)
     }
 
+    getCarDetail(key, key2){
+        let rtnVal = '';
+        if(this.props.car[key]){
+            let attr = this.props.car[key];
+            rtnVal = attr[key2];
+        }
+        return rtnVal;
+    }
+
 
     render() {
-
         return (
             <section className="Summary">
                 <div className="content">
@@ -49,19 +45,19 @@ class Summary extends Component {
                         </tr>
                         <tr>
                             <td>{this.getValue('body')}</td>
-                            <td>&nbsp;</td>
+                            <td>{this.getCarDetail('Body','Name')}</td>
                         </tr>
-                        {/*<tr>*/}
-                            {/*<td>{this.getValue('engine')}</td>*/}
-                            {/*<td>{console.log(this.props.car["Engine"])}</td>*/}
-                        {/*</tr>*/}
-                        {/*<tr>*/}
-                            {/*<td>Model</td>*/}
-                            {/*<td>{console.log(this.getCarDetail('Model','Name'))}</td>*/}
-                        {/*</tr>*/}
+                        <tr>
+                            <td>{this.getValue('engine')}</td>
+                            <td>{this.getCarDetail('Engine','Name')}</td>
+                        </tr>
+                        <tr>
+                            <td>{this.getValue('model')}</td>
+                            <td>{this.getCarDetail('Model','Name')}</td>
+                        </tr>
                         <tr>
                             <td>{this.getValue('transmission')}</td>
-                            <td>&nbsp;</td>
+                            <td>{this.getCarDetail('Transmission','Name')}</td>
                         </tr>
                         </tbody>
                     </table>

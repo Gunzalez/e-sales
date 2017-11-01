@@ -4,7 +4,8 @@
     "header":"Verify your identity",
     "intro":"How would you like to verify your identity?",
     "button1Label":"BankID on this device",
-    "button2Label":"BankID on a different device"
+    "button2Label":"BankID on a different device",
+    "button3Label":"I don't have BankID"
   },
   "stepZero": {
     "welcome":"Welcome",
@@ -15,7 +16,8 @@
       "Don't do this",
       "Never ever do that"
     ],
-    "para1":"Click on the button below to proceed"
+    "para1":"Click on the button below to proceed",
+    "buttonLabel1":"Start the process"
   },
   "stepTwo": {
     "label":"2. Credit check",

@@ -26,6 +26,11 @@ class StepZero extends Component {
         )
     }
 
+    clicked(e){
+        e.preventDefault();
+        return false;
+    }
+
     render() {
         let instructions = [];
         if(this.state.dictionary['instructions']){
@@ -35,15 +40,18 @@ class StepZero extends Component {
             <section className="StepOne">
                 <div className="content">
 
-                    <h1>{this.getValue('welcome')}</h1>
-                    <h3>{this.getValue('header')}</h3>
-                    <ul>
-                        { instructions.map((instruction, i) => {
-                           return this.renderLi(instruction, i)
-                        })}
-                    </ul>
-                    <p>{this.getValue('para1')}</p>
-                    <Link to="/stepone" className="btn-progress">Start</Link>
+                    <div className="copy">
+                        <h1>{this.getValue('welcome')}</h1>
+                        <h3>{this.getValue('header')}</h3>
+                        <ul>
+                            { instructions.map((instruction, i) => {
+                                return this.renderLi(instruction, i)
+                            })}
+                        </ul>
+                        <p>{this.getValue('para1')}</p>
+                    </div>
+
+                    <Link to="/stepone" className="btn btn-red" onClick={()=>{this.clicked()}}>{this.getValue('buttonLabel1')}</Link>
 
                 </div>
 
