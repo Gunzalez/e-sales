@@ -114,7 +114,7 @@ $fontToyota2:       'TYB';
       outline: none;
 
       &[disabled]{
-        color: $brand-grey;
+        color: darken($brand-grey, 30%);
       }
 
       &.active {
@@ -192,10 +192,6 @@ $fontToyota2:       'TYB';
     }
   }
 
-  .VerifyUser {
-
-  }
-
   main {
     float: left;
     width: 60%;
@@ -240,7 +236,12 @@ $fontToyota2:       'TYB';
 
     table {
       margin-top: 20px;
-      border: 1px solid red;
+      text-align: left;
+      font-size: 1.1em;
+
+      td {
+        padding: 10px 10px 0 0;
+      }
     }
   }
 

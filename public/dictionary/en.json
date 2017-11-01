@@ -6,11 +6,31 @@
     "button1Label":"BankID on this device",
     "button2Label":"BankID on a different device"
   },
+  "stepZero": {
+    "welcome":"Welcome",
+    "header":"Instructions",
+    "instructions": [
+      "Do this",
+      "Do that",
+      "Don't do this",
+      "Never ever do that"
+    ],
+    "para1":"Click on the button below to proceed"
+  },
   "stepTwo": {
     "label":"2. Credit check",
     "header":"Credit check"
   },
+  "app": {
+    "title":"Private lease",
+    "logo-alt-text":"Private lease"
+  },
   "summary": {
-    "header":"Your quote"
+    "header":"Your quote",
+    "model":"Model",
+    "name":"Name",
+    "engine":"Engine",
+    "body":"Body type",
+    "transmission":"Transmission"
   }
 }

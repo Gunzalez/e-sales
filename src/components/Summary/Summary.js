@@ -2,13 +2,35 @@ import React, { Component } from 'react';
 
 class Summary extends Component {
 
-    getDictionaryValue(key){
-        let rtnVal = '';
-        if(this.props.dictionary && this.props.dictionary[key]){
-            rtnVal = this.props.dictionary[key];
+    constructor(props){
+        super(props);
+        this.state = {
+            car : {}
         }
-        return rtnVal;
     }
+
+    componentDidMount(){
+        this.state = {
+            car : this.props.car
+        }
+    }
+
+    getCarDetail(key, key2){
+        let rtnVal = '',
+            car = this.state.car;
+
+        try {
+            rtnVal = car[key][key2];
+            return rtnVal
+        } catch (err){
+            return rtnVal;
+        }
+    }
+
+    getValue(key){
+        return this.props.getValue(this.props.dictionary, key)
+    }
+
 
     render() {
 
@@ -16,21 +38,29 @@ class Summary extends Component {
             <section className="Summary">
                 <div className="content">
 
-                    <h2>{this.getDictionaryValue('header')}</h2>
+                    <h2>{this.getValue('header')}</h2>
 
 
                     <table width="100%" border="0">
                         <tbody>
                         <tr>
-                            <th scope="col">&nbsp;</th>
-                            <th scope="col">&nbsp;</th>
+                            <td>{this.getValue('name')}</td>
+                            <td>{this.props.car["Name"]}</td>
                         </tr>
                         <tr>
-                            <td>&nbsp;</td>
+                            <td>{this.getValue('body')}</td>
                             <td>&nbsp;</td>
                         </tr>
+                        {/*<tr>*/}
+                            {/*<td>{this.getValue('engine')}</td>*/}
+                            {/*<td>{console.log(this.props.car["Engine"])}</td>*/}
+                        {/*</tr>*/}
+                        {/*<tr>*/}
+                            {/*<td>Model</td>*/}
+                            {/*<td>{console.log(this.getCarDetail('Model','Name'))}</td>*/}
+                        {/*</tr>*/}
                         <tr>
-                            <td>&nbsp;</td>
+                            <td>{this.getValue('transmission')}</td>
                             <td>&nbsp;</td>
                         </tr>
                         </tbody>

@@ -6,11 +6,31 @@
     "button1Label":"BankID",
     "button2Label":"BankID på mobi"
   },
+  "stepZero": {
+    "welcome":"Velkommen",
+    "header":"Bruksanvisning",
+    "instructions": [
+      "Gjør dette",
+      "Gjør det",
+      "Ikke gjør dette",
+      "Gjør aldri det"
+    ],
+    "para1":"Klikk på knappen nedenfor for å fortsette"
+  },
   "stepTwo": {
     "label":"2. Kredittvurdering",
     "header":"Kredittvurdering"
   },
+  "app": {
+    "title":"Privat leieavtale",
+    "logo-alt-text":"Privat leieavtale"
+  },
   "summary": {
-    "header":"Din beregning"
+    "header":"Din beregning",
+    "model":"Modell",
+    "name":"Navn",
+    "engine":"Motor",
+    "body":"Karosseri",
+    "transmission":"Overføring"
   }
 }
