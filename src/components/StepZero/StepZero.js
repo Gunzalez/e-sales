@@ -49,9 +49,10 @@ class StepZero extends Component {
                             })}
                         </ul>
                         <p>{this.getValue('para1')}</p>
+                        <p>{this.props.configID}</p>
                     </div>
 
-                    <Link to="/stepone" className="btn btn-red" onClick={()=>{this.clicked()}}>{this.getValue('buttonLabel1')}</Link>
+                    <Link to={ this.props.configID + '/stepone' } className="btn btn-red" onClick={()=>{this.clicked()}}>{this.getValue('buttonLabel1')}</Link>
 
                 </div>
 

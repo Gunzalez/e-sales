@@ -95,6 +95,7 @@ class App extends Component {
     }
 
     render() {
+        let summaryHamdler = ({match}) => <Summary configID={match.params.configID} car={this.state.car} dictionary={this.state.dictionary['summary']} getValue={this.getDictionaryValueForKey} />;
         return (
             <div className="App">
 
@@ -104,16 +105,18 @@ class App extends Component {
                 <div className="container">
                     <main>
 
-                        <Route exact={true} path="/" render={ () => <StepZero moveToNextStep={this.moveToNextStep.bind(this)} dictionary={this.state.dictionary["stepZero"]} getValue={this.getDictionaryValueForKey} /> }>
-
-                        </Route>
-                        <Route path="/stepone" render={ () => <StepOne moveToNextStep={this.moveToNextStep.bind(this)} dictionary={this.state.dictionary["stepOne"]} getValue={this.getDictionaryValueForKey} /> }  />
-                        <Route path="/steptwo" render={ () => <StepTwo moveToNextStep={this.moveToNextStep.bind(this)} dictionary={this.state.dictionary["stepTwo"]} getValue={this.getDictionaryValueForKey} /> }  />
+                        <Route exact={true} path="/:configID" render={ ({match}) => <StepZero configID={match.params.configID} moveToNextStep={this.moveToNextStep.bind(this)} dictionary={this.state.dictionary["stepZero"]} getValue={this.getDictionaryValueForKey} /> } />
+                        <Route path="/:configID/stepone" render={ () => <StepOne moveToNextStep={this.moveToNextStep.bind(this)} dictionary={this.state.dictionary["stepOne"]} getValue={this.getDictionaryValueForKey} /> }  />
+                        <Route path="/:configID/steptwo" render={ () => <StepTwo moveToNextStep={this.moveToNextStep.bind(this)} dictionary={this.state.dictionary["stepTwo"]} getValue={this.getDictionaryValueForKey} /> }  />
 
                     </main>
                     <aside>
 
-                        <Summary car={this.state.car} dictionary={this.state.dictionary['summary']} getValue={this.getDictionaryValueForKey} />
+                        <Route exact={true} path="/:configID" render={ summaryHamdler } />
+                        <Route exact={true} path="/:configID/stepone" render={ summaryHamdler } />
+                        <Route exact={true} path="/:configID/steptwo" render={ summaryHamdler } />
+
+
 
                     </aside>
                 </div>
