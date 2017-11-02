@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import Header from './components/Header/Header';
 import Steps from './components/Steps/Steps';
@@ -19,7 +19,8 @@ class App extends Component {
             step: 0,
             lang: 'en',
             car: {},
-            dictionary: {}
+            dictionary: {},
+            configId: ''
         };
     }
 
@@ -40,9 +41,11 @@ class App extends Component {
             carUrl = api + '/data/car.json',
             dictionaryUrl = api + '/dictionary/'+ this.state.lang+'.json';
 
+        // get locale for the app
         fetch(dictionaryUrl)
             .then(function(response) {
                 if (response.status >= 400) {
+                    // todo better error handling
                     throw new Error("Bad response from server");
                 }
                 return response.json();
@@ -50,19 +53,26 @@ class App extends Component {
             .then(function(data) {
                 that.setState({ dictionary: data });
 
+                // get configId from url
+                let path = window.location.pathname,
+                    configId = path.split("/")[1];
+                    that.setState({ configId: configId });
+                });
+
+                // get car data - carUrl is faked, will contain 'configId'
                 fetch(carUrl)
                     .then(function(response) {
                         if (response.status >= 400) {
+                            // todo better error handling
                             throw new Error("Bad response from server");
                         }
                         return response.json();
                     })
                     .then(function(data) {
-                        // saves in just the car for now
+                        // saves just the car details
                         that.setState({ car: data["MarketingSpecification"]["Car"] });
-                    });
 
-            });
+                });
     }
 
     changeLanguage(lang){
@@ -88,14 +98,14 @@ class App extends Component {
         }
     }
 
-    moveToNextStep(){
+    setCurrentStep(step){
         this.setState({
-            step: this.state.step + 1
+            step: step
         });
     }
 
     render() {
-        let summaryHamdler = ({match}) => <Summary configID={match.params.configID} car={this.state.car} dictionary={this.state.dictionary['summary']} getValue={this.getDictionaryValueForKey} />;
+
         return (
             <div className="App">
 
@@ -104,20 +114,15 @@ class App extends Component {
 
                 <div className="container">
                     <main>
-
-                        <Route exact={true} path="/:configID" render={ ({match}) => <StepZero configID={match.params.configID} moveToNextStep={this.moveToNextStep.bind(this)} dictionary={this.state.dictionary["stepZero"]} getValue={this.getDictionaryValueForKey} /> } />
-                        <Route path="/:configID/stepone" render={ () => <StepOne moveToNextStep={this.moveToNextStep.bind(this)} dictionary={this.state.dictionary["stepOne"]} getValue={this.getDictionaryValueForKey} /> }  />
-                        <Route path="/:configID/steptwo" render={ () => <StepTwo moveToNextStep={this.moveToNextStep.bind(this)} dictionary={this.state.dictionary["stepTwo"]} getValue={this.getDictionaryValueForKey} /> }  />
-
+                        <Switch>
+                            <Route exact={true} path="/" render={ (props) => <StepZero {...props} configId={this.state.configId} setCurrentStep={this.setCurrentStep.bind(this)} dictionary={this.state.dictionary["stepZero"]} getValue={this.getDictionaryValueForKey} /> } />
+                            <Route exact={true} path="/:configId" render={ (props) => <StepZero {...props} configId={this.state.configId} setCurrentStep={this.setCurrentStep.bind(this)} dictionary={this.state.dictionary["stepZero"]} getValue={this.getDictionaryValueForKey} /> } />
+                            <Route exact={true} path="/:configId/stepone" render={ (props) => <StepOne {...props} configId={this.state.configId} setCurrentStep={this.setCurrentStep.bind(this)} dictionary={this.state.dictionary["stepOne"]} getValue={this.getDictionaryValueForKey} /> }  />
+                            <Route exact={true} path="/:configId/steptwo" render={ (props) => <StepTwo {...props} configId={this.state.configId} setCurrentStep={this.setCurrentStep.bind(this)} dictionary={this.state.dictionary["stepTwo"]} getValue={this.getDictionaryValueForKey} /> }  />
+                        </Switch>
                     </main>
                     <aside>
-
-                        <Route exact={true} path="/:configID" render={ summaryHamdler } />
-                        <Route exact={true} path="/:configID/stepone" render={ summaryHamdler } />
-                        <Route exact={true} path="/:configID/steptwo" render={ summaryHamdler } />
-
-
-
+                        <Summary car={this.state.car} configId={this.state.configId} dictionary={this.state.dictionary['summary']} getValue={this.getDictionaryValueForKey} />
                     </aside>
                 </div>
 

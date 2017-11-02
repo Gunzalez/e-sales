@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 
 class StepZero extends Component {
 
@@ -26,18 +25,23 @@ class StepZero extends Component {
         )
     }
 
-    clicked(e){
-        e.preventDefault();
-        return false;
+    moveToNextStep(){
+        this.props.history.push('/'+ this.props.configId + '/stepone');
+    }
+
+    componentDidMount(){
+        this.props.setCurrentStep(0);
     }
 
     render() {
+
         let instructions = [];
-        if(this.state.dictionary['instructions']){
+        if(this.state.dictionary && this.state.dictionary['instructions']){
             instructions = this.state.dictionary['instructions']
         }
+
         return (
-            <section className="StepOne">
+            <section className="StepZero">
                 <div className="content">
 
                     <div className="copy">
@@ -49,15 +53,14 @@ class StepZero extends Component {
                             })}
                         </ul>
                         <p>{this.getValue('para1')}</p>
-                        <p>{this.props.configID}</p>
                     </div>
 
-                    <Link to={ this.props.configID + '/stepone' } className="btn btn-red" onClick={()=>{this.clicked()}}>{this.getValue('buttonLabel1')}</Link>
+                    <button className="btn btn-red" onClick={this.moveToNextStep.bind(this)}>{this.getValue('buttonLabel1')}</button>
 
                 </div>
 
             </section>
-            )
+        )
     }
 }
 

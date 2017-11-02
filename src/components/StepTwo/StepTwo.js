@@ -14,6 +14,10 @@ class StepTwo extends Component {
         return rtnVal;
     }
 
+    componentDidMount(){
+        this.props.setCurrentStep(2);
+    }
+
     render() {
         return (
             <section className="StepTwo">

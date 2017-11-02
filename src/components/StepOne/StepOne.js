@@ -9,16 +9,18 @@ class StepOne extends Component {
         };
     }
 
-    setVisual(screenId){
-        this.setState({
-            busy: true
-        });
-        // does lots of ajax stuff
-        //
-        //
-        //
+    moveToNextStep(){
 
-        this.props.moveToNextStep();
+
+
+
+
+        //this.props.history.push(this.props.location.pathname + '/steptwo');
+        this.props.history.push('/'+ this.props.configId + '/steptwo');
+    }
+
+    componentDidMount(){
+        this.props.setCurrentStep(1);
     }
 
     getValue(key){
@@ -30,20 +32,16 @@ class StepOne extends Component {
            <section className="StepOne">
                <div className="content">
 
-                   { this.state.busy ? <div className="spinner"></div> : ''}
-                   { !this.state.busy ? <div className="content">
+                   <div className="copy">
+                       <h1>{this.getValue('header')}</h1>
+                       <p>{this.getValue('intro')}</p>
+                   </div>
 
-                       <div className="copy">
-                           <h1>{this.getValue('header')}</h1>
-                           <p>{this.getValue('intro')}</p>
-                       </div>
+                   <button className="btn">{ this.getValue('button1Label') }</button><br/>
+                   <button className="btn">{ this.getValue('button2Label') }</button><br/>
+                   <button className="btn">{ this.getValue('button3Label') }</button><br/>
 
-                       <button className="btn" onClick={()=>{this.setVisual('bankId')}}>{ this.getValue('button1Label') }</button><br/>
-                       <button className="btn">{ this.getValue('button2Label') }</button>
-                       <button className="btn">{ this.getValue('button3Label') }</button>
-
-
-                   </div> : ''}
+                   <button className="btn btn-red" onClick={this.moveToNextStep.bind(this)}>Step Two</button>
 
                </div>
 

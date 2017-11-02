@@ -15,6 +15,13 @@ class Summary extends Component {
         return rtnVal;
     }
 
+    renderImage(){
+        if(this.props.configId){
+            return (
+                <img src={'https://images.toyota-europe.com/configuration/'+ this.props.configId + '/exterior-04.png?width=247&height=138'} alt={this.props.car["Name"]} />
+            )
+        }
+    }
 
     render() {
 
@@ -24,8 +31,7 @@ class Summary extends Component {
 
                     <h2>{this.getValue('header')}</h2>
 
-                    <img src={'https://images.toyota-europe.com/configuration/'+ this.props.configID + '/exterior-04.png?width=768&height=516'} />
-
+                    { this.renderImage() }
 
                     <table width="100%" border="0">
                         <tbody>
