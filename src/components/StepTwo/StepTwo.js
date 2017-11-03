@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import Summary from '../Summary/Summary'
+
 
 class StepTwo extends Component {
 
     moveToNextStep(){
-        this.props.moveToNextStep()
+        alert('Work in Progress, you may not proceed beyond this point');
+        //this.props.moveToNextStep();
     }
 
     getDictionaryValue(key){
@@ -21,14 +24,21 @@ class StepTwo extends Component {
     render() {
         return (
             <section className="StepTwo">
+                <div className="container">
 
-                <div className="content">
-                    <h1>{this.getDictionaryValue('header')}</h1>
-                    <p>Lots of form fields here</p>
+                    <main>
+                        <div className="copy">
+                            <h1>{this.getDictionaryValue('header')}</h1>
+                            <p>Lots of form fields here</p>
+                        </div>
+                        <button className="btn btn-red" onClick={this.moveToNextStep.bind(this)}>Step Three</button>
+                    </main>
 
-                    <button>Submit</button>
+                    <aside>
+                        <Summary car={this.props.car} configId={this.props.configId} dictionary={this.props.summary} />
+                    </aside>
+
                 </div>
-
             </section>
         )
     }

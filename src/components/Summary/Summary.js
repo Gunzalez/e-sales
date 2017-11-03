@@ -11,9 +11,11 @@ const getValue = (dictionary, key) => {
 };
 
 const renderImage = (configId, altText) => {
-    return (
-        <img src={'https://images.toyota-europe.com/configuration/'+ configId + '/exterior-04.png?width=247&height=138'} alt={altText}  />
-    )
+    if (configId){
+        return (
+            <img src={'https://images.toyota-europe.com/configuration/'+ configId + '/exterior-04.png?width=247&height=138'} alt={altText}  />
+        )
+    }
 };
 
 const getCarDetail = (car, key) => {

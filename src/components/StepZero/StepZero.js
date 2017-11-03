@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Summary from '../Summary/Summary'
 
 class StepZero extends Component {
 
@@ -34,7 +35,6 @@ class StepZero extends Component {
     }
 
     render() {
-
         let instructions = [];
         if(this.state.dictionary && this.state.dictionary['instructions']){
             instructions = this.state.dictionary['instructions']
@@ -42,23 +42,26 @@ class StepZero extends Component {
 
         return (
             <section className="StepZero">
-                <div className="content">
+                <div className="container">
 
-                    <div className="copy">
-                        <h1>{this.getValue('welcome')}</h1>
-                        <h3>{this.getValue('header')}</h3>
-                        <ul>
-                            { instructions.map((instruction, i) => {
-                                return this.renderLi(instruction, i)
-                            })}
-                        </ul>
-                        <p>{this.getValue('para1')}</p>
-                    </div>
-
-                    <button className="btn btn-red" onClick={this.moveToNextStep.bind(this)}>{this.getValue('buttonLabel1')}</button>
+                    <main>
+                        <div className="copy">
+                            <h1>{this.getValue('welcome')}</h1>
+                            <h3>{this.getValue('header')}</h3>
+                            <ul>
+                                { instructions.map((instruction, i) => {
+                                    return this.renderLi(instruction, i)
+                                })}
+                            </ul>
+                            <p>{this.getValue('para1')}</p>
+                        </div>
+                        <button className="btn btn-red" onClick={this.moveToNextStep.bind(this)}>{this.getValue('buttonLabel1')}</button>
+                    </main>
+                    <aside>
+                        <Summary car={this.props.car} configId={this.props.configId} dictionary={this.props.summary} />
+                    </aside>
 
                 </div>
-
             </section>
         )
     }
