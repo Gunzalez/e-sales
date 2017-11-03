@@ -23,6 +23,18 @@
     "label":"2. Kredittvurdering",
     "header":"Kredittvurdering"
   },
+  "stepThree": {
+    "label":"3. Kontroller",
+    "header":"Kontroller"
+  },
+  "stepFour": {
+    "label":"4. Velg forhandler",
+    "header":"Velg forhandler"
+  },
+  "stepFive": {
+    "label":"5. Signering",
+    "header":"Signering"
+  },
   "app": {
     "title":"Privat leieavtale",
     "logo-alt-text":"Privat leieavtale"

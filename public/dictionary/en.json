@@ -23,6 +23,18 @@
     "label":"2. Credit check",
     "header":"Credit check"
   },
+  "stepThree": {
+    "label":"3. Check details",
+    "header":"Check details"
+  },
+  "stepFour": {
+    "label":"4. Pick dealer",
+    "header":"Pick dealer"
+  },
+  "stepFive": {
+    "label":"5. Sign contract",
+    "header":"Sign contract"
+  },
   "app": {
     "title":"Private lease",
     "logo-alt-text":"Private lease"
