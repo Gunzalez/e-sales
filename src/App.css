@@ -153,7 +153,8 @@
       background-color: #ea3012;
       color: #ffffff; }
   .App .copy {
-    padding-bottom: 30px; }
+    padding-bottom: 30px;
+    min-height: 300px; }
   .App .Summary {
     text-align: center; }
     .App .Summary table {
