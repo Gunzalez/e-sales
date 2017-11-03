@@ -1,67 +1,63 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Summary extends Component {
-
-    getValue(key){
-        return this.props.getValue(this.props.dictionary, key)
-    }
-
-    getCarDetail(key){
-        let rtnVal = '';
-        if(this.props.car[key]){
-            let attr = this.props.car[key];
-            rtnVal = attr["Name"];
-        }
+const getValue = (dictionary, key) => {
+    let rtnVal = '';
+    try {
+        rtnVal = dictionary[key];
+        return rtnVal
+    } catch (err){
         return rtnVal;
     }
+};
 
-    renderImage(){
-        if(this.props.configId){
-            return (
-                <img src={'https://images.toyota-europe.com/configuration/'+ this.props.configId + '/exterior-04.png?width=247&height=138'} alt={this.props.car["Name"]} />
-            )
-        }
+const renderImage = (configId, altText) => {
+    return (
+        <img src={'https://images.toyota-europe.com/configuration/'+ configId + '/exterior-04.png?width=247&height=138'} alt={altText}  />
+    )
+};
+
+const getCarDetail = (car, key) => {
+    let rtnVal = '';
+    if(car[key]){
+        let attr = car[key];
+        rtnVal = attr["Name"];
     }
+    return rtnVal;
+};
 
-    render() {
+const Summary = (props) => (
+    <div className="Summary content">
 
-        return (
-            <section className="Summary">
-                <div className="content">
+        <h2>{ getValue(props.dictionary,'header') }</h2>
 
-                    <h2>{this.getValue('header')}</h2>
+        { renderImage(props.configId, props.car['Name']) }
 
-                    { this.renderImage() }
+        <table width="100%" border="0">
+            <tbody>
+            <tr>
+                <td>{ getValue(props.dictionary, 'name') }</td>
+                <td>{ props.car["Name"] }</td>
+            </tr>
+            <tr>
+                <td>{ getValue(props.dictionary, 'body') }</td>
+                <td>{ getCarDetail(props.car, 'Body')}</td>
+            </tr>
+            <tr>
+                <td>{ getValue(props.dictionary, 'engine') }</td>
+                <td>{ getCarDetail(props.car, 'Engine')}</td>
+            </tr>
+            <tr>
+                <td>{ getValue(props.dictionary, 'model') }</td>
+                <td>{ getCarDetail(props.car, 'Model') }</td>
+            </tr>
+            <tr>
+                <td>{ getValue(props.dictionary, 'transmission') }</td>
+                <td>{ getCarDetail(props.car, 'Transmission') }</td>
+            </tr>
 
-                    <table width="100%" border="0">
-                        <tbody>
-                        <tr>
-                            <td>{this.getValue('name')}</td>
-                            <td>{this.props.car["Name"]}</td>
-                        </tr>
-                        <tr>
-                            <td>{this.getValue('body')}</td>
-                            <td>{this.getCarDetail('Body')}</td>
-                        </tr>
-                        <tr>
-                            <td>{this.getValue('engine')}</td>
-                            <td>{this.getCarDetail('Engine')}</td>
-                        </tr>
-                        <tr>
-                            <td>{this.getValue('model')}</td>
-                            <td>{this.getCarDetail('Model')}</td>
-                        </tr>
-                        <tr>
-                            <td>{this.getValue('transmission')}</td>
-                            <td>{this.getCarDetail('Transmission')}</td>
-                        </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-            </section>
-        )
-    }
-}
+            </tbody>
+        </table>
+    </div>
+);
 
 export default Summary;
