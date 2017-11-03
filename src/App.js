@@ -23,7 +23,7 @@ class App extends Component {
         };
     }
 
-    getDictionaryValueForKey(dictionary, key){
+    getValue(dictionary, key){
         let rtnVal = '';
         try {
             rtnVal = dictionary[key];
@@ -112,9 +112,9 @@ class App extends Component {
                 <Steps step={this.state.step} dictionary={this.state.dictionary} />
                 <Switch>
                     {/*<Route exact={true} path="/" render={ (props) => <StepZero {...props} car={this.state.car} configId={this.state.configId} summary={this.state.dictionary['summary']} setCurrentStep={this.setCurrentStep.bind(this)} dictionary={this.state.dictionary["stepZero"]} getValue={this.getDictionaryValueForKey} /> } />*/}
-                    <Route exact={true} path="/:configId" render={ (props) => <StepZero {...props} car={this.state.car} summary={this.state.dictionary['summary']} configId={this.state.configId} setCurrentStep={this.setCurrentStep.bind(this)} dictionary={this.state.dictionary["stepZero"]} getValue={this.getDictionaryValueForKey} /> }  />
-                    <Route exact={true} path="/:configId/stepone" render={ (props) => <StepOne {...props} car={this.state.car} summary={this.state.dictionary['summary']} configId={this.state.configId} setCurrentStep={this.setCurrentStep.bind(this)} dictionary={this.state.dictionary["stepOne"]} getValue={this.getDictionaryValueForKey} /> }  />
-                    <Route exact={true} path="/:configId/steptwo" render={ (props) => <StepTwo {...props} car={this.state.car} summary={this.state.dictionary['summary']} configId={this.state.configId} setCurrentStep={this.setCurrentStep.bind(this)} dictionary={this.state.dictionary["stepTwo"]} getValue={this.getDictionaryValueForKey} /> }  />
+                    <Route exact={true} path="/:configId" render={ (props) => <StepZero {...props} car={this.state.car} summary={this.state.dictionary['summary']} configId={this.state.configId} setCurrentStep={this.setCurrentStep.bind(this)} dictionary={this.state.dictionary["stepZero"]} getValue={this.getValue} /> }  />
+                    <Route exact={true} path="/:configId/stepone" render={ (props) => <StepOne {...props} car={this.state.car} summary={this.state.dictionary['summary']} configId={this.state.configId} setCurrentStep={this.setCurrentStep.bind(this)} dictionary={this.state.dictionary["stepOne"]} getValue={this.getValue} /> }  />
+                    <Route exact={true} path="/:configId/steptwo" render={ (props) => <StepTwo {...props} car={this.state.car} summary={this.state.dictionary['summary']} configId={this.state.configId} setCurrentStep={this.setCurrentStep.bind(this)} dictionary={this.state.dictionary["stepTwo"]} getValue={this.getValue} /> }  />
                 </Switch>
 
             </div>

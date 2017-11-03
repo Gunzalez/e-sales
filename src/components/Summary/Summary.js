@@ -1,15 +1,5 @@
 import React from 'react';
 
-const getValue = (dictionary, key) => {
-    let rtnVal = '';
-    try {
-        rtnVal = dictionary[key];
-        return rtnVal
-    } catch (err){
-        return rtnVal;
-    }
-};
-
 const renderImage = (configId, altText) => {
     if (configId){
         return (
@@ -30,30 +20,30 @@ const getCarDetail = (car, key) => {
 const Summary = (props) => (
     <div className="Summary content">
 
-        <h2>{ getValue(props.dictionary,'header') }</h2>
+        <h2>{ props.getValue(props.dictionary,'header') }</h2>
 
         { renderImage(props.configId, props.car['Name']) }
 
         <table width="100%" border="0">
             <tbody>
             <tr>
-                <td>{ getValue(props.dictionary, 'name') }</td>
+                <td>{ props.getValue(props.dictionary, 'name') }</td>
                 <td>{ props.car["Name"] }</td>
             </tr>
             <tr>
-                <td>{ getValue(props.dictionary, 'body') }</td>
+                <td>{ props.getValue(props.dictionary, 'body') }</td>
                 <td>{ getCarDetail(props.car, 'Body')}</td>
             </tr>
             <tr>
-                <td>{ getValue(props.dictionary, 'engine') }</td>
+                <td>{ props.getValue(props.dictionary, 'engine') }</td>
                 <td>{ getCarDetail(props.car, 'Engine')}</td>
             </tr>
             <tr>
-                <td>{ getValue(props.dictionary, 'model') }</td>
+                <td>{ props.getValue(props.dictionary, 'model') }</td>
                 <td>{ getCarDetail(props.car, 'Model') }</td>
             </tr>
             <tr>
-                <td>{ getValue(props.dictionary, 'transmission') }</td>
+                <td>{ props.getValue(props.dictionary, 'transmission') }</td>
                 <td>{ getCarDetail(props.car, 'Transmission') }</td>
             </tr>
 

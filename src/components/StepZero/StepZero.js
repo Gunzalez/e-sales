@@ -58,7 +58,7 @@ class StepZero extends Component {
                         <button className="btn btn-red" onClick={this.moveToNextStep.bind(this)}>{this.getValue('buttonLabel1')}</button>
                     </main>
                     <aside>
-                        <Summary car={this.props.car} configId={this.props.configId} dictionary={this.props.summary} />
+                        <Summary car={this.props.car} configId={this.props.configId} dictionary={this.props.summary} getValue={this.props.getValue} />
                     </aside>
 
                 </div>

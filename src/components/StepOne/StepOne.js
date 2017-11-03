@@ -48,7 +48,7 @@ class StepOne extends Component {
 
                    </main>
                    <aside>
-                       <Summary car={this.props.car} configId={this.props.configId} dictionary={this.props.summary} />
+                       <Summary car={this.props.car} configId={this.props.configId} dictionary={this.props.summary}  getValue={this.props.getValue}  />
                    </aside>
 
                </div>
