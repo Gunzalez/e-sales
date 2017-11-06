@@ -58,7 +58,7 @@ class App extends Component {
                     that.setState({ configId: configId });
                 });
 
-                // get car data - carUrl is faked, will contain 'configId'
+                // get car data - carUrl is faked, will contain 'configId' in string
                 fetch(carUrl)
                     .then(function(response) {
                         if (response.status >= 400) {

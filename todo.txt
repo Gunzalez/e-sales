@@ -1,0 +1,3 @@
+better way to send dictionary
+break up scss files
+set up for saving page of last option or stage aka sub step
